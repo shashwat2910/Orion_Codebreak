@@ -111,7 +111,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
           TextButton(
             onPressed: () async {
-              await authController.signIn(email.text, password.text);
+              await 
+              authController.signIn(email.text, password.text);
             },
             child: Container(
               height: 50,
