@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fuel_theft_tracker/views/testing.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
@@ -45,7 +47,6 @@ class _DriverInformationState extends State<DriverInformation> {
                         Marker(
                             markerId: MarkerId("location"),
                             position: LatLng(18.493481, 74.020453))
-                            
                       },
                     ),
                   ),
@@ -301,7 +302,19 @@ class _DriverInformationState extends State<DriverInformation> {
                       print(rating);
                     },
                   ),
-                )
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Testing(),
+                          ));
+                    },
+                    child: Text("Testing"))
               ],
             ),
           ),

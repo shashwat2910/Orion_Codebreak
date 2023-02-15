@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fuel_theft_tracker/controller/authentication.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 

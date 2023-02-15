@@ -1,10 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseAuthentication extends GetxController {
-   var uuid = "".obs;
-   Future<void> signIn(String email, String password) async {
+
+  var uuid = "".obs;
+  Future<void> signIn(String email, String password) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
@@ -35,6 +37,7 @@ class FirebaseAuthentication extends GetxController {
       }
     }
   }
+
   Future<void> signUp(String email, String password) async {
     try {
       UserCredential userCredential =
