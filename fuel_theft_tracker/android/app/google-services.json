@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "576190425395",
+    "project_id": "fueltheft-541cf",
+    "storage_bucket": "fueltheft-541cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576190425395:android:50d3286f69db62163bf646",
+        "android_client_info": {
+          "package_name": "com.example.fuel_theft_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576190425395-hoj5hbueafbrebsb0g69v2gbspttmpll.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEfsIHl85iVE48I1P9FGM2mCvhUz7t6I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576190425395-hoj5hbueafbrebsb0g69v2gbspttmpll.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "576190425395-fu3am83blt3hrsf4ca6rhfia3efti6c1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fuelTheftTracker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
