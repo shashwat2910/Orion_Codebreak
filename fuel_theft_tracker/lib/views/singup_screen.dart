@@ -3,12 +3,12 @@ import 'package:fuel_theft_tracker/controller/authentication.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatefulWidget {
+class SignupPage extends StatefulWidget {
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   final authController = Get.put(FirebaseAuthentication());
   TextEditingController email = new TextEditingController();
   TextEditingController password = new TextEditingController();
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Center(
             child: Text(
-              "Login",
+              "Sign Up",
               style: GoogleFonts.dancingScript(
                 color: Colors.blue.shade600,
                 fontSize: 35,
@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           TextButton(
             onPressed: () async {
-              await authController.signIn(email.text, password.text);
+              authController.signUp(email.text, password.text);
             },
             child: Container(
               height: 50,
@@ -136,10 +136,10 @@ class _LoginPageState extends State<LoginPage> {
           ),
           GestureDetector(
             onTap: () {
-              Get.toNamed('/signup');
+              Get.toNamed('/login');
             },
             child: Text(
-              "Create an Account!..",
+              "Already have an account!..",
               style: GoogleFonts.mcLaren(
                 color: Colors.lightBlue.shade300,
                 fontSize: 20,

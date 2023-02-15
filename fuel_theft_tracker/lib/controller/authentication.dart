@@ -35,4 +35,42 @@ class FirebaseAuthentication extends GetxController {
       }
     }
   }
+  Future<void> signUp(String email, String password) async {
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      await userCredential.user!.sendEmailVerification();
+      Get.snackbar(
+        "Success",
+        "Please verify your email!",
+        backgroundColor: Colors.green,
+        snackPosition: SnackPosition.BOTTOM,
+        maxWidth: 300,
+      );
+      Get.toNamed('/login');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        Get.snackbar(
+          "Error",
+          "The password provided is too weak.",
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+          maxWidth: 300,
+        );
+      } else if (e.code == 'email-already-in-use') {
+        Get.snackbar(
+          "Error",
+          "The account already exists for that email.",
+          backgroundColor: Colors.red,
+          snackPosition: SnackPosition.BOTTOM,
+          maxWidth: 300,
+        );
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 }
