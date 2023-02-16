@@ -20,6 +20,19 @@ class _DriverInformationState extends State<DriverInformation> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xFF48b1bf).withOpacity(0.5),
+          elevation: 3,
+          centerTitle: true,
+          title: Text(
+            "FuelWise",
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+            ),
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: SingleChildScrollView(
