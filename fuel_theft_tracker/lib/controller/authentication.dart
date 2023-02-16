@@ -2,8 +2,47 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:math';
 
 class FirebaseAuthentication extends GetxController {
+  var sum = 0.obs;
+  RxDouble ans = 0.0.obs;
+
+  void calculateFuelTheft(
+      double fuelAdded, double expectedRange, double actualDistance) {
+    double expectedFuelConsumption = fuelAdded / expectedRange;
+    double actualFuelConsumption = fuelAdded / actualDistance;
+    double fuelTheft = expectedFuelConsumption - actualFuelConsumption;
+    ans.value = fuelTheft;
+  }
+
+  Future<void> fetchData() async {
+    await FirebaseFirestore.instance
+        .collection('drivers')
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        double fuelAdded = double.parse(doc['fuelAdded']);
+        double expectedRange = double.parse(doc['expectedRange']);
+        double actualDistance = double.parse(doc['actualDistance']);
+        calculateFuelTheft(fuelAdded, expectedRange, actualDistance);
+      });
+    });
+  }
+
+  Future<void> fetchDoc() async {
+    await FirebaseFirestore.instance
+        .collection('drivers')
+        .doc('0LoUED7EqPgOXBqMqyfo')
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      double fuelAdded = double.parse(documentSnapshot['fuelAdded']);
+      double expectedRange = double.parse(documentSnapshot['expectedRange']);
+      double actualDistance = double.parse(documentSnapshot['actualDistance']);
+      calculateFuelTheft(fuelAdded, expectedRange, actualDistance);
+      print("$ans");
+    });
+  }
 
   var uuid = "".obs;
   Future<void> signIn(String email, String password) async {

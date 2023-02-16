@@ -23,10 +23,10 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
@@ -37,20 +37,14 @@ class _SignupPageState extends State<SignupPage> {
               fit: BoxFit.fill,
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
           Center(
             child: Text(
               "Sign Up",
               style: GoogleFonts.dancingScript(
                 color: Colors.blue.shade600,
-                fontSize: 35,
+                fontSize: 45,
               ),
             ),
-          ),
-          SizedBox(
-            height: 10,
           ),
           Center(
             child: Container(
@@ -73,9 +67,6 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 20,
           ),
           Center(
             child: Container(
@@ -106,9 +97,6 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
           TextButton(
             onPressed: () async {
               authController.signUp(email.text, password.text);
@@ -130,9 +118,6 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 20,
           ),
           GestureDetector(
             onTap: () {

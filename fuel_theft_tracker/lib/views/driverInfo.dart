@@ -57,30 +57,22 @@ class _DriverInformationState extends State<DriverInformation> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      height: 75,
-                      width: 75,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.grey)),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
                       child: Image(
-                        image: AssetImage("assets/driver.png"),
-                        fit: BoxFit.fill,
+                        width: 75,
+                        height: 75,
+                        image: AssetImage("assets/Shashwat_Sharma.jpeg"),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Shashwat Sharma",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Text(
-                          "MH12RT3537",
-                          style: TextStyle(fontSize: 15),
-                        )
-                      ],
-                    )
+                    Text(
+                      "Shashwat Sharma",
+                      style: GoogleFonts.poppins(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -91,7 +83,7 @@ class _DriverInformationState extends State<DriverInformation> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     SizedBox(
-                      width: 75,
+                      width: 45,
                     ),
                     Icon(
                       Icons.location_on,
@@ -114,7 +106,7 @@ class _DriverInformationState extends State<DriverInformation> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 90,
+                      width: 60,
                     ),
                     Column(
                       children: [
@@ -187,7 +179,7 @@ class _DriverInformationState extends State<DriverInformation> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     SizedBox(
-                      width: 75,
+                      width: 45,
                     ),
                     Icon(
                       Icons.pin_drop_rounded,
@@ -232,6 +224,28 @@ class _DriverInformationState extends State<DriverInformation> {
                     ),
                     Text(
                       "E001",
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Vehcile Number",
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      "MH 12 RT 3537",
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -306,15 +320,43 @@ class _DriverInformationState extends State<DriverInformation> {
                 SizedBox(
                   height: 10,
                 ),
-                TextButton(
+                Center(
+                  child: TextButton(
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Testing(),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Testing(),
+                        ),
+                      );
                     },
-                    child: Text("Testing"))
+                    child: Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          gradient: LinearGradient(
+                            begin: Alignment.bottomLeft,
+                            stops: [0.1, 0.9],
+                            colors: [
+                              Colors.blue.shade300,
+                              Colors.blue.shade700,
+                            ],
+                          ),
+                        ),
+                        height: 45,
+                        width: MediaQuery.of(context).size.width / 3.5,
+                        child: Center(
+                          child: Text(
+                            "Calculate",
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
